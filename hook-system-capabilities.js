@@ -12,17 +12,17 @@ exports.init = init;
 
 /**
  * Main entry point for our plugin which looks for the platform specific
- * plugin to invoke
+ * plugin to invoke.
  */
 function init(logger, config, cli, appc) {
 	cli.on('build.ios.xcodeproject', {
 		pre: function(data) {
 			logger.info('Injecting system-capability ...');
 
-      // FIXME: Change to your required system-capability
+      			// FIXME: Change to your required system-capability
 			var systemCapability = 'com.apple.iCloud';
 
-      // Dig through the .pbxproj data structure
+      			// Dig through the .pbxproj data structure
 			var hash = data.args[0].hash;
 			var objects = hash.project.objects;
 			var rootObject = hash.project.rootObject;
